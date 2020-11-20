@@ -1,15 +1,15 @@
 function buildCharts(id){
-    d3.json("samples.json").then((data)=>{
+    d3.json("../../samples.json").then((data)=>{
     // data.filter()  
     // console.log(data)
-    // sampleArray = data.samples.filter(obj=>obj.id==id)
-        var samples= data.samples;
-        var resultsarray= samples.filter(sampleobject => sampleobject.id == sample);
-        var result= resultsarray[0]
+    sampleArray = data.samples.filter(obj=>obj.id==id)
+        // var samples= data.samples;
+        // var resultsarray= samples.filter(sampleobject => sampleobject.id == sample);
+        // var result= resultsarray[0]
 
-        var ids = result.otu_ids;
-        var labels = result.otu_labels;
-        var values = result.sample_values;
+        // var ids = result.otu_ids;
+        // var labels = result.otu_labels;
+        // var values = result.sample_values;
         
         // Step 1: BarChart: Create the Trace
     var trace1 = {
@@ -48,7 +48,7 @@ function buildCharts(id){
       console.log(metadataArray)
     })
 }
-d3.json("samples.json").then((data)=>{
+d3.json("../../samples.json").then((data)=>{
     var dropDown = d3.select("#selDataset")
     data.names.forEach((ids)=>{
         dropDown.append("option").text(ids).property('value', ids)
@@ -61,7 +61,7 @@ function optionChanged(newSample){
 }
 
 function buildMetadata(sample) {
-    d3.json("samples.json").then((data) => {
+    d3.json("../../samples.json").then((data) => {
       var metadata= data.metadata;
       var resultsarray= metadata.filter(sampleobject => sampleobject.id == sample);
       var result= resultsarray[0]
